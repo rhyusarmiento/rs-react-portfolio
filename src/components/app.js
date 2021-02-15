@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 
-// import axios from 'axios';
+import PortfolioContainer from "./portfolio/portfolio-container";
 
 export default class App extends Component {
   render() {
@@ -9,6 +9,7 @@ export default class App extends Component {
       <div className="app">
         <h2>React Redux Router</h2>
         <h1>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h1>
+        <PortfolioContainer/>
       </div>
     );
   }
