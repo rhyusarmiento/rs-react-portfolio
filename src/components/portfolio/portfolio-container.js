@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 
+import PortfolioItem from "./portfolio-item";
+
 export default class PortfolioContainer extends Component {
     render() {
         return (
-            <button>Click me jajaja</button>
+            <div>
+                <button>Click me jajaja</button>
+                <PortfolioItem />
+            </div>
         )
     }
 }

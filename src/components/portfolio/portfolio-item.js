@@ -1,9 +1,9 @@
 import React from "react";
 
-export default class PortfolioItem extends Component {
-    render() {
-        return (
-            <button>Click me jajaja</button>
-        )
-    }
+export default function() {
+    return (
+        <div>
+            <h3>Port folios</h3>
+        </div>
+    )
 }
