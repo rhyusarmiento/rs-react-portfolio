@@ -6,7 +6,6 @@ import {
   Route
 } from 'react-router-dom'
 
-import PortfolioContainer from "./portfolio/portfolio-container";
 import NaviagtionContainer from './navigation/navigation-container'
 import Home from './pages/home'
 import About from './pages/about'
@@ -19,6 +18,8 @@ export default class App extends Component {
       <div className="app">
         <Router>
           <div>
+            <h2>Rhyu Bottega React-Router</h2>
+            <h4>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h4>
             <NaviagtionContainer />
             <Switch>
               <Route exact path="/" component={Home} />
@@ -28,9 +29,6 @@ export default class App extends Component {
             </Switch>
           </div>
         </Router>
-        <h2>React Redux Router</h2>
-        <h1>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h1>
-        <PortfolioContainer/>
       </div>
     );
   }
