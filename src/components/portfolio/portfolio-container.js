@@ -8,19 +8,21 @@ export default class PortfolioContainer extends Component {
     this.state = {
         pageTitle: "Welcome to my Portfolio",
         data: [
-            {title: "Quip"},
-            {title: "Eventbrite"}, 
-            {title: "Ministry Safe"}, 
-            {title: "SwingAway"}
+            {title: "Quip", category: "eCommerce"},
+            {title: "Eventbrite", category: "Scheduleing"}, 
+            {title: "Ministry Safe", category: "Enterprise"}, 
+            {title: "SwingAway", category: "eCommerce"}
         ]
     }
 
-    this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this)
+    this.handleFilter = this.handleFilter.bind(this)
   }
 
-  handlePageTitleUpdate() {
+  handleFilter(filter) {
     this.setState({
-        pageTitle: "Something else"
+      data: this.state.data.filter((item) => {
+        return item.category == filter
+      })
     })
   }
 
@@ -35,11 +37,11 @@ export default class PortfolioContainer extends Component {
       <div>
         <h2>{this.state.pageTitle}</h2>
 
-        {this.portfolioItems()}
-        
-        <hr/>
+        <button onClick={() => this.handleFilter('eCommerce')}>eCommerce</button>
+        <button onClick={() => this.handleFilter('Scheduleing')}>Scheduleing</button>
+        <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
 
-        <button onClick={this.handlePageTitleUpdate}>Change Content</button>
+        {this.portfolioItems()}
       </div>
     );
   }
