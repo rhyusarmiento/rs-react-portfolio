@@ -44,10 +44,9 @@ export default class PortfolioItem extends Component {
   
           <div className="subtitle">{description}</div>
         </div>
-        <Link to={`./portfolio/${id}`}>
+        {/* <Link to={`./portfolio/${id}`}>
           Link
-        </Link>
-  
+        </Link> */}
       </div>
     );
   }
