@@ -12,18 +12,28 @@ export default class NavigationComponent extends Component {
         return (
             <div className="nav-wrapper">
                 <div className="left-side">
-                    <NavLink exact to="/" activeClassName="nav-link-active">
-                        Home
-                    </NavLink>
-                    <NavLink to="/about">
-                        About
-                    </NavLink>
-                    <NavLink to="/contact">
-                        Contact 
-                    </NavLink>
-                    <NavLink to="/blog">
-                        Blog 
-                    </NavLink>
+                    <div className="nav-link-wrapper">  
+                        <NavLink exact to="/" activeClassName="nav-link-active">
+                            Home
+                        </NavLink>
+                    </div>
+                    <div className="nav-link-wrapper">
+                        <NavLink to="/about">
+                            About
+                        </NavLink>
+                    </div>
+                    <div className="nav-link-wrapper">
+                        <NavLink to="/contact">
+                            Contact 
+                        </NavLink>
+                    </div>
+                    <div className="nav-link-wrapper">
+                        <NavLink to="/blog">
+                            Blog 
+                        </NavLink>
+                    </div>
+                    
+                    
 
                     {false ? <button>Add Blog</button> : null }
                 </div>
