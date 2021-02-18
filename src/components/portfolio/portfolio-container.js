@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 import PortfolioItem from "./portfolio-item";
 
@@ -16,9 +17,11 @@ export default class PortfolioContainer extends Component {
         ]
     }
 
+    this.getPortfolioItems = this.getPortfolioItems.bind(this)
     this.handleFilter = this.handleFilter.bind(this)
   }
 
+  
   handleFilter(filter) {
     this.setState((prevState) => ({
       data: prevState.data.filter((item) => {
@@ -31,6 +34,16 @@ export default class PortfolioContainer extends Component {
     //   })
     // })
   }
+      
+  getPortfolioItems() {
+    axios.get("https://rs.devcamp.space/portfolio/portfolio_items")
+    .then((response) => {
+      console.log("response", response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
 
   portfolioItems() {
     return this.state.data.map(item => {
@@ -42,6 +55,7 @@ export default class PortfolioContainer extends Component {
     if (this.state.isLoading) {
       return <div>Loading...</div>
     }
+    this.getPortfolioItems()
     return (
       <div>
         <h2>{this.state.pageTitle}</h2>
