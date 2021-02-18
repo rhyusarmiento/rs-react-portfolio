@@ -13,8 +13,13 @@ export default function(props) {
           backgroundImage: `url(${thumb_image_url})`
         }}
       />
-      {/* <img src={logo_url} /> */}
-      <div>{description}</div>
+      <div className="img-text-wrapper">
+        <div className="logo-wrapper">
+          <img src={logo_url} />
+        </div>
+
+        <div className="subtitle">{description}</div>
+      </div>
       <Link to={`./portfolio/${id}`}>
         Link
       </Link>
