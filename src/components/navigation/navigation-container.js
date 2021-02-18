@@ -18,17 +18,17 @@ export default class NavigationComponent extends Component {
                         </NavLink>
                     </div>
                     <div className="nav-link-wrapper">
-                        <NavLink to="/about">
+                        <NavLink to="/about" activeClassName="nav-link-active">
                             About
                         </NavLink>
                     </div>
                     <div className="nav-link-wrapper">
-                        <NavLink to="/contact">
+                        <NavLink to="/contact" activeClassName="nav-link-active">
                             Contact 
                         </NavLink>
                     </div>
                     <div className="nav-link-wrapper">
-                        <NavLink to="/blog">
+                        <NavLink to="/blog" activeClassName="nav-link-active">
                             Blog 
                         </NavLink>
                     </div>
