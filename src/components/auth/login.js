@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from 'axios'
 
 export default class Login extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             email: "",
             password: "",
@@ -32,16 +32,18 @@ export default class Login extends Component {
         { withCredentials: true }
         ).then((response) => {
             if (response.data.status == 'created') {
-                console.log("enter");
+                this.props.handleSuccessfulAuth();
             } else {
                 this.setState({
-                    errorText: "Wrong"
+                    errorText: "Wrong",
                 })
+                this.props.handleSuccessfulAuth();
             }
         }).catch((error) => {
             this.setState({
-                errorText: "An error occurred"
+                errorText: "An error occurred",
             })
+            this.props.handleUnSuccessfulAuth();
         })
 
         event.preventDefault();
