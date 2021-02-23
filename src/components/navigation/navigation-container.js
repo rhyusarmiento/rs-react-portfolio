@@ -7,8 +7,8 @@ function NavigationComponent(props) {
     function dynamicLink(route, linkText) {
         return (
             <div className="nav-link-wrapper">
-                <NavLink to="/blog" activeClassName="nav-link-active">
-                    Blog 
+                <NavLink to={route} activeClassName="nav-link-active">
+                    {linkText}
                 </NavLink>
             </div>
         )
@@ -47,7 +47,12 @@ function NavigationComponent(props) {
                         Contact 
                     </NavLink>
                 </div>
-                {props.loggedInStatus == "LOGGED_IN" ? dynamicLink("/blog", "Blog") : null}
+                <div className="nav-link-wrapper">
+                    <NavLink to="/blog" activeClassName="nav-link-active">
+                        Blog
+                    </NavLink>
+                </div>
+                {props.loggedInStatus == "LOGGED_IN" ? dynamicLink("/portfolio", "portfolio manager") : null}
             </div>
             <div className="right-side">
                 Rhyu Sarmiento
