@@ -14,7 +14,6 @@ export default class PortfolioContainer extends Component {
 
     this.handleFilter = this.handleFilter.bind(this)
   }
-
   
   handleFilter(filter) {
     this.setState((prevState) => ({
