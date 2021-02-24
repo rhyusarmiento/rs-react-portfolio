@@ -21,6 +21,7 @@ export default class PortfolioManager extends Component {
   handleSuccessfulFormSubmission(portfolioItem) {
     this.setState({
       portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+      // spread op
     })
   }
 
@@ -30,7 +31,7 @@ export default class PortfolioManager extends Component {
 
   getPortfolioItems() {
     axios
-      .get("https://rs.devcamp.space/portfolio/portfolio_items", 
+      .get("https://rs.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", 
       { withCredentials: true }
       )
       .then(response => {
