@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 export default function BlogItem(props) {
     const {
         id,
-        blog_status,
-        content,
         title,
+        content,
+        blog_status,
         featured_image_url
     } = props.blogItem
 

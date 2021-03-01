@@ -8,13 +8,17 @@ export default class BlogDetail extends Component {
             currentId: this.props.match.params.slug,
             blogItem: {}
         }
+
+        this.getBlogItem = this.getBlogItem.bind(this)
     }
 
     getBlogItem() {
         axios
             .get(`https://rs.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`)
-            .then(res => {
-                console.log("res", res);
+            .then(response => {
+                this.setState({
+                    blogItem: response.data.portfolio_blog
+                })
             })
             .catch(err => {
                 console.log("err", err);
@@ -26,9 +30,22 @@ export default class BlogDetail extends Component {
     }
 
     render() {
+        const {
+            title,
+            content,
+            featured_image_url,
+            blog_status
+        } = this.state.blogItem
+
         return (
-            <div>
-                Blog detail
+            <div className="blog-container">
+                <div className="content-container">
+                    <h1>{title}</h1>
+                    <div className="featured-image-wrapper">
+                        <img src={featured_image_url} />
+                    </div>
+                    <div className="content">{content}</div>
+                </div>
             </div>
         )
     }
