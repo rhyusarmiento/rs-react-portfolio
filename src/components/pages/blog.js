@@ -16,20 +16,20 @@ export default class Blog extends Component {
         }
 
         this.getBlogItems = this.getBlogItems.bind(this)
-        this.activateInfiniteScoll();
+        this.onScroll = this.onScroll.bind(this)
+        
+        window.addEventListener("scroll", this.onScroll, false)
     }
 
-    activateInfiniteScoll() {
-        window.onscroll = () => {
-            if (this.state.isLoading || this.state.blogItems.length === this.state.totalCount) {
-                return;
-            }
-            if (
-                window.innerHeight + document.documentElement.scrollTop ===
-                document.documentElement.offsetHeight
-            ) {
-                this.getBlogItems()
-            }
+    onScroll() {
+        if (this.state.isLoading || this.state.blogItems.length === this.state.totalCount) {
+            return;
+        }
+        if (
+            window.innerHeight + document.documentElement.scrollTop ===
+            document.documentElement.offsetHeight
+        ) {
+            this.getBlogItems()
         }
     }
 
@@ -42,7 +42,6 @@ export default class Blog extends Component {
                 withCredentials: true
             })
             .then(response => {
-                console.log("res", response);
                 this.setState({
                     blogItems: this.state.blogItems.concat(response.data.portfolio_blogs),
                     totalCount: response.data.meta.total_records,
@@ -56,6 +55,10 @@ export default class Blog extends Component {
 
     componentWillMount() {
         this.getBlogItems();
+    }
+
+    componentWillUnMount() {
+        window.removeEventListener("scroll", this.onScroll, false)
     }
 
     render() {
