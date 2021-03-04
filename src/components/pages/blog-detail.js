@@ -48,7 +48,7 @@ export default class BlogDetail extends Component {
             blog_status
         } = this.state.blogItem
 
-        function contentManager() {
+        const contentManager = () => {
             if (this.state.editMode) {
                 return <BlogForm />
             } else {
